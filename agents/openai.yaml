@@ -1,5 +1,5 @@
 interface:
-  display_name: "Product Beautifier"
+  display_name: "Polarisark Product Beautifier"
   short_description: "全品类商品图批量白底精修，保持商品真实并提升商业质感"
   default_prompt: "使用 $polarisark-product-beautifier 将一张或多张商品实拍图独立精修为真实、明亮通透、材质分明的白底成片。"
 
