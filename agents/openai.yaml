@@ -1,6 +1,6 @@
 interface:
   display_name: "Product Beautifier"
-  short_description: "单图商品白底精修，保持真实并提升通透度与材质表现"
+  short_description: "全品类单图商品白底精修，保持真实并提升材质表现"
   default_prompt: "使用 $polarisark-product-beautifier 将这张商品实拍图精修为真实、明亮通透、材质分明的白底成片。"
 
 policy:
