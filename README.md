@@ -30,16 +30,6 @@ npx skills add jonathansong21/polarisark-product-beautifier
 npx skills add jonathansong21/polarisark-product-beautifier -g -a codex
 ```
 
-也可通过 Git 管理 Codex 全局安装：
-
-```bash
-mkdir -p ~/.codex/skills
-git clone https://github.com/jonathansong21/polarisark-product-beautifier.git \
-  ~/.codex/skills/polarisark-product-beautifier
-```
-
-在对应克隆目录执行 `git pull` 更新。
-
 `agents`、`references` 和 `scripts` 分别提供界面元数据、精修与 API 指南、API 调用能力；用户配置独立保存在包目录外。
 
 ### 第一次调用
@@ -261,7 +251,7 @@ polarisark-product-beautifier/
 
 ## 9. 维护与许可
 
-**更新方式：** CLI 安装可使用 `npx skills update polarisark-product-beautifier`，按原安装范围选择更新；Git 安装在克隆目录执行 `git pull`；手动安装重新复制完整技能资源。更新可能替换包内自定义内容，应先保留自己的修改；包外的用户配置不随技能更新改写。
+**更新方式：** CLI 安装可使用 `npx skills update polarisark-product-beautifier`，按原安装范围选择更新；手动安装重新复制完整技能资源。更新可能替换包内自定义内容，应先保留自己的修改；包外的用户配置不随技能更新改写。
 
 **已知限制：** 图像编辑结果仍需对照原图 QA，细小文字、复杂连接、透明区域和高光材质可能无法在纠正上限内保真。API 仅支持同步原图编辑协议，不支持仅聊天兼容、纯文生图或异步任务接口。实际分辨率与模型信息以可核验结果为准，不能依据 Prompt 或请求模型名称声称达到某项规格。
 
