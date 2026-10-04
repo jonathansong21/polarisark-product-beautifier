@@ -44,10 +44,10 @@ git clone https://github.com/jonathansong21/polarisark-product-beautifier.git \
 
 ```bash
 mkdir -p ~/.codex/skills/polarisark-product-beautifier
-cp -R SKILL.md agents references ~/.codex/skills/polarisark-product-beautifier/
+cp -R SKILL.md agents references scripts ~/.codex/skills/polarisark-product-beautifier/
 ```
 
-手动安装必须同时包含 `SKILL.md`、`agents/openai.yaml` 和 `references/retouching-guide.md`，否则界面元数据或精修指南可能缺失。
+手动安装须包含 `SKILL.md`、`agents`、`references` 和 `scripts`，以保留界面元数据、精修指南和 API 调用能力；用户配置独立保存在包目录外，不随安装复制。
 
 ## 使用
 
@@ -58,6 +58,14 @@ $polarisark-product-beautifier
 ```
 
 然后提供一张或多张商品原图。可以额外提供明确关联的色卡、产品事实档案或参考图，用于确认颜色和结构；这些辅助资料不会被精修或作为成片交付。
+
+## 生图方式与本地配置
+
+默认使用宿主 Agent 的图像编辑能力，无需 API 配置。也可明确要求使用兼容 OpenAI Images 编辑协议的 API，或把本地配置中的默认方式设为 `api`。两种方式共用商品真实性、QA、纠正和交付规则，失败时不静默切换。
+
+用户配置固定为 `~/.config/polarisark-product-beautifier/config.yaml`，独立于 skill 安装目录，更新或重装包不修改该文件。API 地址、模型和密钥环境变量名由用户配置；实际密钥不写入包或 YAML。本次指定的方式和参数优先，不自动改写默认配置。
+
+配置格式、API 依赖、调用与兼容范围见 [API 编辑说明](references/api-edit.md)。API 模式仅支持上传原图的同步编辑接口，不把聊天兼容或纯文生图视为图像编辑支持。服务商和模型的实际能力及费用需单独确认。
 
 ## 处理能力
 
@@ -88,7 +96,7 @@ $polarisark-product-beautifier
 - 合格：白底精修成片和一句处理摘要。
 - 失败：具体失败项、风险和必要补充材料，不把失败候选标记为合格成片。
 
-同时返回整批成功/失败数量，并保持输入与输出或失败说明一一对应。
+同时返回整批成功/失败数量，必要时单列结果未知和未处理项，并保持输入与输出或失败说明一一对应。
 
 合格成片统一使用 `{原图文件名主体}_beautified.{实际扩展名}`，例如 `photo.jpg` 的 PNG 成片为 `photo_beautified.png`；没有可用原图文件名时，按目标图输入顺序使用 `image_001_beautified.png`，辅助参考图不参与编号，失败不会改变后续序号。
 
@@ -100,7 +108,12 @@ $polarisark-product-beautifier
 polarisark-product-beautifier/
 ├── SKILL.md
 ├── agents/openai.yaml
-└── references/retouching-guide.md
+├── references/
+│   ├── retouching-guide.md
+│   └── api-edit.md
+└── scripts/
+    ├── image_api.py
+    └── requirements.txt
 ```
 
-`SKILL.md` 是安装入口；`references/retouching-guide.md` 提供材质、品类结构保护和 QA 规则，并会随 skill 一起安装。
+`SKILL.md` 是安装入口；精修指南、API 说明与调用脚本随包安装，实际 `config.yaml` 留在用户配置目录。API 脚本只生成待 QA 候选图，由宿主检查后命名交付。
