@@ -1,6 +1,6 @@
 slug: polarisark-product-beautifier
 displayName: "电商商品图精修与白底图制作 | PolarisArk"
-version: 1.0.0
+version: 1.0.1
 summary: "将单张或批量商品实拍图逐张精修为电商白底图（Product Photo Retouching），清理拍摄瑕疵、校正曝光与白平衡、改善材质表现，并对照原图检查结构、原色、Logo 和文字。需宿主图像编辑工具或兼容 OpenAI Images 的编辑 API；不处理场景合成、透明背景或商品换色。"
 license: MIT
 tags: ["电商", "商品图精修", "白底图", "批量修图", "product-photo-retouching", "white-background"]
