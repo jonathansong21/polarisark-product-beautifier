@@ -229,7 +229,7 @@ polarisark-product-beautifier/
 ├── README.md
 ├── SKILL.md
 ├── skillhub.yaml
-├── LICENSE
+├── LICENSE.md
 ├── agents/
 │   └── openai.yaml
 ├── references/
@@ -246,7 +246,7 @@ polarisark-product-beautifier/
 |---|---|
 | [SKILL.md](SKILL.md) | 技能元数据、触发说明、精修与交付规则。 |
 | [skillhub.yaml](skillhub.yaml) | SkillHub 发布名称、版本、简介、标签、许可证与仓库链接。 |
-| [LICENSE](LICENSE) | MIT 许可证全文。 |
+| [LICENSE.md](LICENSE.md) | MIT 许可证全文。 |
 | [agents/openai.yaml](agents/openai.yaml) | Codex 界面元数据与自动调用策略。 |
 | [精修指南](references/retouching-guide.md) | 材质表现、品类结构保护与 QA。 |
 | [API 编辑说明](references/api-edit.md) | 配置、依赖、调用、兼容范围及失败处理。 |
@@ -259,10 +259,10 @@ polarisark-product-beautifier/
 
 **SkillHub 发布：** 发布元数据统一维护在 [skillhub.yaml](skillhub.yaml)，字段含义见 [SkillHub 发布指南](https://skillhub.cn/tutorials)。源文件 `SKILL.md` 保留标准 Agent Skills frontmatter，避免 SkillHub 扩展字段导致标准校验失败。
 
-发布前创建临时副本，包含 `SKILL.md`、`README.md`、`skillhub.yaml`、`LICENSE`、`agents/`、`references/`、`scripts/` 和 `tests/`；将 `skillhub.yaml` 的字段合并到副本 `SKILL.md` 的顶层 frontmatter，保留现有 `name`、`description`、`metadata` 与完整正文。合并时使用单行标量和行内列表，以兼容 SkillHub CLI 的解析方式；不得覆盖源目录或复制用户配置、密钥及 Git 数据。
+发布前创建临时副本，包含 `SKILL.md`、`README.md`、`skillhub.yaml`、`LICENSE.md`、`agents/`、`references/`、`scripts/` 和 `tests/`；将 `skillhub.yaml` 的字段合并到副本 `SKILL.md` 的顶层 frontmatter，保留现有 `name`、`description`、`metadata` 与完整正文。合并时使用单行标量和行内列表，以兼容 SkillHub CLI 的解析方式；不得覆盖源目录或复制用户配置、密钥及 Git 数据。
 
 源目录通过标准技能校验后，对发布副本执行 `skillhub publish <发布副本目录> --dry-run`。预检通过后，用户明确要求发布时再执行正式发布；版本更新只修改 `skillhub.yaml` 中的 `version`，保持 `slug` 不变。
 
 **已知限制：** 图像编辑结果仍需对照原图 QA，细小文字、复杂连接、透明区域和高光材质可能无法在纠正上限内保真。API 仅支持同步原图编辑协议，不支持仅聊天兼容、纯文生图或异步任务接口。实际分辨率与模型信息以可核验结果为准，不能依据 Prompt 或请求模型名称声称达到某项规格。
 
-**许可证：** 本 Skill 采用 [MIT License](LICENSE)，并在技能元数据和 SkillHub 发布元数据中声明。
+**许可证：** 本 Skill 采用 [MIT License](LICENSE.md)，并在技能元数据和 SkillHub 发布元数据中声明。
