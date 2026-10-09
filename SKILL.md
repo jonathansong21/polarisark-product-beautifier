@@ -1,6 +1,7 @@
 ---
 name: polarisark-product-beautifier
 description: 将全品类一张或多张商品实拍图独立精修为真实、明亮通透、材质分明的电商白底图；适用于清理摄影瑕疵、保持原机位与商品结构、校正色彩光影并增强对应材质表现。不用于场景合成、非白底背景、换色、换款或商品重设计。
+license: MIT
 metadata:
   short-description: 全品类商品图批量白底精修，兼顾真实性与商业质感
 ---
